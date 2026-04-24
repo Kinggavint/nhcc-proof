@@ -1,0 +1,6 @@
+extracted/
+reference-theme/
+assets/images-original/
+REAL_CONTENT.md
+__pycache__/
+*.pyc
