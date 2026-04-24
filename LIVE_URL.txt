@@ -1,0 +1,20 @@
+https://kinggavint.github.io/nhcc-proof/
+
+Repository: https://github.com/Kinggavint/nhcc-proof
+Branch: main
+Source: main / root (GitHub Pages Legacy build)
+HTTPS: enforced
+
+Last verified: 2026-04-24 01:27 UTC — all primary routes return HTTP 200
+  /                          200
+  /about/                    200
+  /services/                 200
+  /patient-info/             200
+  /hearing-testing/          200
+  /appointment/              200
+  /contact/                  200
+  /blog/                     200
+  /newsletters/              200
+  /downloads/nhcc-new-patient-paperwork.pdf   200
+  /sitemap.xml               200
+  /robots.txt                200
