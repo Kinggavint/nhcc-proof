@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://kinggavint.github.io/nhcc-proof/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
   <url><loc>https://kinggavint.github.io/nhcc-proof/about/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kinggavint.github.io/nhcc-proof/about/gina-angley/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://kinggavint.github.io/nhcc-proof/services/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://kinggavint.github.io/nhcc-proof/patient-info/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://kinggavint.github.io/nhcc-proof/hearing-testing/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

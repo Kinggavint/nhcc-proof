@@ -84,7 +84,7 @@ BIZ_SCHEMA = {
   }
 }
 
-def render_head(depth:int, title:str, description:str, canonical_path:str, extra_json_ld:list|None=None)->str:
+def render_head(depth:int, title:str, description:str, canonical_path:str, extra_json_ld:list|None=None, extra_head:str="")->str:
     css   = asset(depth, "assets/css/style.css")
     js    = asset(depth, "assets/js/site.js")
     logo  = asset(depth, "assets/icons/NHCC-Full-White-new.svg")
@@ -120,6 +120,7 @@ def render_head(depth:int, title:str, description:str, canonical_path:str, extra
   <link rel="stylesheet" href="https://use.typekit.net/gwr1nfk.css">
   <link rel="stylesheet" href="{css}">
   {json_ld_html}
+  {extra_head}
 </head>
 <body>
 <a class="skip-link" href="#primary">Skip to content</a>
@@ -214,7 +215,7 @@ def render_footer(depth:int)->str:
 </html>
 """
 
-def write_page(rel:str, depth:int, title:str, description:str, body:str, json_ld:list|None=None):
+def write_page(rel:str, depth:int, title:str, description:str, body:str, json_ld:list|None=None, extra_head:str=""):
     out_dir = OUT / rel if rel.endswith("/") or rel=="" else (OUT / rel).parent
     if rel == "":
         out_path = OUT / "index.html"
@@ -227,7 +228,7 @@ def write_page(rel:str, depth:int, title:str, description:str, body:str, json_ld
     out_dir.mkdir(parents=True, exist_ok=True)
     canonical_path = rel if rel else "index.html"
     html_doc = (
-        render_head(depth, title, description, canonical_path, json_ld)
+        render_head(depth, title, description, canonical_path, json_ld, extra_head)
         + render_header(depth)
         + body
         + render_footer(depth)

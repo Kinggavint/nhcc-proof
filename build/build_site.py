@@ -181,6 +181,116 @@ def build_home():
 # =========================================================
 # ABOUT
 # =========================================================
+TEAM_CSS = """
+.team_wrap{padding:60px 0;background:#fff}
+.team_top_wrap{text-align:center;max-width:760px;margin:0 auto 40px}
+.team_top_wrap h2{margin-bottom:12px}
+.team_top_wrap p{color:#555;margin:0}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;max-width:1100px;margin:0 auto}
+.team-card{text-align:center}
+.team-card picture{display:block;width:200px;height:200px;margin:0 auto 16px;border-radius:50%;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.team-card picture img{width:100%;height:100%;object-fit:cover;display:block}
+.team-card h3{margin:0 0 4px;font-size:1.15rem}
+.team-card .role{margin:0 0 12px;color:#0a5b8a;font-weight:600;font-size:.95rem}
+.team-card p:not(.role){font-size:.95rem;line-height:1.55;color:#444;text-align:left}
+.team-card .profile_link{display:inline-block;margin-top:4px;font-weight:600}
+@media (max-width:600px){.team-card picture{width:160px;height:160px}}
+"""
+
+PROFILE_CSS = """
+.profile_stacked .about_inner_wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
+.profile_stacked .profile_photo{width:240px;height:240px;border-radius:50%;overflow:hidden;margin:0 0 32px;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.profile_stacked .profile_photo img{width:100%;height:100%;object-fit:cover;display:block}
+.profile_stacked .profile_bio{max-width:760px;text-align:left}
+.profile_stacked .profile_bio h2{text-align:center}
+.profile_stacked .btn_group{justify-content:center}
+"""
+
+ANGLEY_BIO_PARAGRAPHS = [
+    "You shouldn't feel closed off from your life anymore. Since the beginning of my clinical experience in 2010, I've met with patients who felt like they couldn't be active participants in their lives anymore because of their hearing loss.",
+    "They had a hard time understanding conversations, especially in crowded, noisy spaces. So they stopped going to events, church, or meeting friends, family, colleagues in restaurants because it was just too frustrating.",
+    "They felt embarrassed at work because they had to keep asking coworkers to repeat themselves. And sometimes they missed details that affected their performance. They experienced tension in their relationships, sometimes arguing over the volume on the TV or radio—or their partners thought they weren't listening. They felt isolated, not being able to fully engage with the work, activities, and groups they always loved.",
+    f"I started my journey in audiology by earning a bachelor's in Communication Sciences and Disorders from Syracuse University in 2006 (Go Orange!), followed by a Doctor of Audiology degree from Vanderbilt University in 2010. I worked in an ear, nose, and throat office for a few years before rejoining the Vanderbilt Bill Wilkerson Center conducting clinical research and working with patients in the clinic. For 5 years I served as the Associate Director of Adult Amplification before starting {BUSINESS}.",
+    "Amplify your hearing, amplify your life — see your life and relationships transformed simply by improving your hearing. Your initial appointment will be thorough, ensuring that all testing is accurate and that you fully understand your options and costs. Once you have the right device for your lifestyle, fitted to your exact hearing needs, you'll find that you can engage in your life again. And there's no better feeling in the world.",
+]
+
+TEAM_MEMBERS = [
+    dict(slug=None, file="headshot", name="Dr. Gina Angley, AuD, CCC-A", role="Doctor of Audiology &amp; Owner",
+         bio="Doctor of Audiology trained at Vanderbilt University, with experience at the Bill Wilkerson Center where she served as Associate Director of Adult Amplification. Dr. Angley founded NHCC to deliver evidence-based, patient-centered audiology in the Nashville community she has called home since 2006."),
+    dict(slug=None, file="suzanne-greer", name="Suzanne Greer", role="Patient Care Coordinator",
+         bio="I have been an active member of the Bellevue community since 1985. I was a Branch Manager in Bellevue for 22 years of my 48-year career in banking. I was also a past president of the Bellevue Chamber of Commerce. My previous career impressed upon me the importance of building strong personal relationships and delivering exceptional customer service. I’m excited to be in a position to help others on their journey to better hearing, understanding it will greatly enrich their quality of life."),
+    dict(slug=None, file="jessica-johnson", name="Jessica Johnson", role="Audiology Assistant",
+         bio="I have always had a passion and desire to help people in any capacity; whether that was working in the family business, working at an eye clinic, or volunteering for one of my son’s school trips. I’m excited to be a part of the NHCC family, serve my community, and walk alongside patients on their hearing journey."),
+    dict(slug=None, file="deidre-kyzer", name="Deidre Kyzer", role="Audiology Assistant",
+         bio="My personal journey with hearing loss has given me a deep understanding of the challenges and emotions many patients experience. I am excited to join NHCC because I am passionate about helping others feel supported, understood, and confident throughout their hearing journey. Being able to work in a field that has personally impacted my life is incredibly meaningful to me, and I look forward to making a positive difference in the lives of our patients and their families alongside the NHCC team."),
+]
+TEAM_MEMBERS[0]["slug"] = "gina-angley"
+
+def team_grid_html(d):
+    cards = []
+    for m in TEAM_MEMBERS:
+        link = (f'<p><a class="profile_link" href="{PG(d, "about/"+m["slug"]+"/")}">Read full bio &rarr;</a></p>'
+                if m["slug"] else "")
+        cards.append(f"""
+        <div class="team-card">
+          <picture>
+            <source srcset="{IMG(d, m['file']+'.webp')}" type="image/webp">
+            <img src="{PG(d, 'assets/images/'+m['file']+'.jpg')}" alt="{m['name']}, {m['role'].replace('&amp;','&')} at {BUSINESS_SHORT}" loading="lazy" decoding="async" width="600" height="600">
+          </picture>
+          <h3>{m['name']}</h3>
+          <p class="role">{m['role']}</p>
+          <p>{m['bio']}</p>
+          {link}
+        </div>""")
+    return "".join(cards)
+
+def build_team_profiles():
+    """Dedicated full-bio pages for team members (currently just Dr. Angley)."""
+    d = 2
+    hero_bg = IMG(d,"hero_0001_AdobeStock_276192047.webp")
+    bio_html = "".join(f"<p>{p}</p>" for p in ANGLEY_BIO_PARAGRAPHS)
+    body = f"""
+<main id="primary" class="site-main">
+
+  <section class="interior_hero" style="background-image:url('{hero_bg}');">
+    <div class="container">
+      <h1>Meet {OWNER.split(',')[0]}</h1>
+      <p>Doctor of Audiology &amp; Owner, {BUSINESS}</p>
+    </div>
+    {render_wave()}
+  </section>
+
+  <section class="about_wrap profile_stacked" aria-label="About Dr. Gina Angley">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="about_inner_wrap">
+            <div class="profile_photo" data-aos="fade-up">
+              <img src="{IMG(d,'headshot.webp')}" alt="Dr. Gina Angley, AuD, CCC-A — headshot">
+            </div>
+            <div class="profile_bio" data-aos="fade">
+              <h2>About {OWNER.split(',')[0]}</h2>
+              {bio_html}
+              <div class="btn_group">
+                <a class="btn schedule_btn" href="{PG(d,'appointment/')}">Schedule Now</a>
+                <a class="btn_alt" href="{PG(d,'about/')}">Back to the Team</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+"""
+    write_page("about/gina-angley/", d,
+        title=f"Meet {OWNER} | {BUSINESS}",
+        description="Meet Dr. Gina Angley, AuD — Doctor of Audiology trained at Vanderbilt, with experience at the Bill Wilkerson Center. Her full story and approach to hearing care in Nashville, TN.",
+        body=body,
+        extra_head=f"<style>{PROFILE_CSS}</style>")
+
+
 def build_about():
     d = 1
     hero_bg = IMG(d,"hero_0001_AdobeStock_276192047.webp")
@@ -259,27 +369,13 @@ def build_about():
     {render_wave()}
   </section>
 
-  <section class="about_wrap" aria-label="About Dr. Gina Angley">
+  <section class="team_wrap" aria-label="Meet the NHCC team">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="about_inner_wrap">
-            <div class="row align-items-center">
-              <div class="col-md-5" data-aos="fade-right">
-                <img src="{IMG(d,'headshot.webp')}" alt="Dr. Gina Angley, AuD, CCC-A — headshot">
-              </div>
-              <div class="col-md-7" data-aos="fade">
-                <h2>About {OWNER.split(',')[0]}</h2>
-                <p>You shouldn't feel closed off from your life anymore. Since the beginning of my clinical experience in 2010, I've met with patients who felt like they couldn't be active participants in their lives anymore because of their hearing loss.</p>
-                <p>They had a hard time understanding conversations, especially in crowded, noisy spaces. So they stopped going to events, church, or meeting friends, family, colleagues in restaurants because it was just too frustrating.</p>
-                <p>They felt embarrassed at work because they had to keep asking coworkers to repeat themselves. And sometimes they missed details that affected their performance. They experienced tension in their relationships, sometimes arguing over the volume on the TV or radio—or their partners thought they weren't listening. They felt isolated, not being able to fully engage with the work, activities, and groups they always loved.</p>
-                <p>I started my journey in audiology by earning a bachelor's in Communication Sciences and Disorders from Syracuse University in 2006 (Go Orange!), followed by a Doctor of Audiology degree from Vanderbilt University in 2010. I worked in an ear, nose, and throat office for a few years before rejoining the Vanderbilt Bill Wilkerson Center conducting clinical research and working with patients in the clinic. For 5 years I served as the Associate Director of Adult Amplification before starting {BUSINESS}.</p>
-                <p>Amplify your hearing, amplify your life — see your life and relationships transformed simply by improving your hearing. Your initial appointment will be thorough, ensuring that all testing is accurate and that you fully understand your options and costs. Once you have the right device for your lifestyle, fitted to your exact hearing needs, you'll find that you can engage in your life again. And there's no better feeling in the world.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="team_top_wrap">
+        <h2>Meet the NHCC Team</h2>
+        <p>The people who walk alongside you on your hearing journey — every step from your first call to long-term care.</p>
       </div>
+      <div class="team-grid">{team_grid_html(d)}</div>
     </div>
   </section>
 
@@ -341,7 +437,8 @@ def build_about():
         title=f"About Dr. Gina Angley, AuD | {BUSINESS}",
         description="Meet Dr. Gina Angley, AuD — Doctor of Audiology trained at Vanderbilt. Learn NHCC's values, what to expect, and answers to the top questions about hearing care in Nashville.",
         body=body,
-        json_ld=[faq_json])
+        json_ld=[faq_json],
+        extra_head=f"<style>{TEAM_CSS}</style>")
 
 
 # =========================================================
@@ -1255,6 +1352,7 @@ def build_newsletters():
 def main():
     build_home()
     build_about()
+    build_team_profiles()
     build_services()
     build_patient_info()
     build_hearing_testing()
@@ -1269,7 +1367,7 @@ def main():
 
 def write_robots_and_sitemap():
     routes = [
-      "", "about/", "services/", "patient-info/", "hearing-testing/",
+      "", "about/", "about/gina-angley/", "services/", "patient-info/", "hearing-testing/",
       "appointment/", "contact/", "blog/",
       "blog/how-to-preserve-and-protect-your-hearing/",
       "blog/how-to-properly-clean-your-hearing-aid/",
