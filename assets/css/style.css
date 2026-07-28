@@ -401,12 +401,13 @@ li{font-size:1.1rem;line-height:1.6}
   transition:box-shadow .25s ease,border-color .25s ease;
 }
 .manufacturer_grid .service_box:hover{border-color:var(--primary);box-shadow:var(--shadow)}
-.manufacturer_grid .service_box a{
+.manufacturer_grid .service_box .mfr_group{
   display:block;font-family:var(--heading-font);font-weight:700;
-  font-size:1.15rem;color:var(--primary);margin-bottom:.4rem;text-decoration:none;
+  font-size:1.15rem;color:#1a1a1a;margin-bottom:.4rem;
 }
-.manufacturer_grid .service_box a:hover{color:var(--primary-dark);text-decoration:underline}
 .manufacturer_grid .service_box p{margin:0;color:#555;font-size:1rem;line-height:1.5}
+.manufacturer_grid .service_box p a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}
+.manufacturer_grid .service_box p a:hover{color:var(--primary-dark)}
 
 /* patient payment boxes */
 .payment_wrap{padding:3rem 1rem;background:var(--light)}
