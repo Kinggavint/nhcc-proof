@@ -226,6 +226,7 @@ li{font-size:1.1rem;line-height:1.6}
 .hero .wave{
   position:absolute;bottom:-2px;left:0;right:0;
   width:100%;height:auto;z-index:2;
+  pointer-events:none;
 }
 @media (min-width:768px){
   .hero .hero_content{padding:11rem 0 8rem}
