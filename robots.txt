@@ -1,4 +1,6 @@
 User-agent: *
-Allow: /
-Sitemap: https://kinggavint.github.io/nhcc-proof/sitemap.xml
-# DEPLOYTEST-1711ec5a1f42a3de
+Disallow: /
+
+# This robots.txt applies to the kinggavint.github.io/nhcc-proof mirror only.
+# The live site at nashvillehcc.com has its own robots.txt in S3 and stays fully crawlable.
+# This mirror is a proof/staging copy and must not compete with nashvillehcc.com in search.
