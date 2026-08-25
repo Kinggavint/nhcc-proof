@@ -498,6 +498,36 @@ def build_services():
         ]
       }
     }
+    service_faq_schema = {
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+        {
+          "@type":"Question",
+          "name":"What happens during a hearing evaluation at NHCC?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"NHCC completes comprehensive diagnostic hearing testing and a communication needs assessment. Testing may include pure-tone audiometry, speech-in-noise testing, and tympanometry so Dr. Gina Angley can explain your options."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Does NHCC use real-ear measurements when fitting hearing aids?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Yes. NHCC uses real-ear measurements to verify that a hearing aid is matched to the shape and acoustics of your ear and your hearing needs. Follow-up visits can fine-tune settings and reassess your goals."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"How does NHCC price hearing aid services?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"NHCC uses transparent, unbundled pricing. The device and each service are itemized so you can see what you are paying for, and device costs are not marked up."
+          }
+        }
+      ]
+    }
 
     body = f"""
 <main id="primary" class="site-main">
@@ -598,6 +628,28 @@ def build_services():
     </div>
   </section>
 
+  <section class="faq_wrap" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <h2>Services questions, answered</h2>
+          <details class="faq_item">
+            <summary>What happens during a hearing evaluation at NHCC?</summary>
+            <div class="faq_body"><p>NHCC completes comprehensive diagnostic hearing testing and a communication needs assessment. Testing may include pure-tone audiometry, speech-in-noise testing, and tympanometry so Dr. Gina Angley can explain your options.</p></div>
+          </details>
+          <details class="faq_item">
+            <summary>Does NHCC use real-ear measurements when fitting hearing aids?</summary>
+            <div class="faq_body"><p>Yes. NHCC uses real-ear measurements to verify that a hearing aid is matched to the shape and acoustics of your ear and your hearing needs. Follow-up visits can fine-tune settings and reassess your goals.</p></div>
+          </details>
+          <details class="faq_item">
+            <summary>How does NHCC price hearing aid services?</summary>
+            <div class="faq_body"><p>NHCC uses transparent, unbundled pricing. The device and each service are itemized so you can see what you are paying for, and device costs are not marked up.</p></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="service_half_wrap" aria-label="Manufacturers we work with">
     <div class="container">
       <h2 style="text-align:center">Manufacturers we work with</h2>
@@ -623,7 +675,7 @@ def build_services():
         title=f"Audiology Services in Nashville, TN | {BUSINESS}",
         description="Diagnostic hearing testing, hearing aid fittings with real-ear measurements, follow-up care, bone-anchored implants, assistive listening devices, and third-party hearing aid repair in Nashville, TN.",
         body=body,
-        json_ld=[service_schema])
+        json_ld=[service_schema, service_faq_schema])
 
 
 def html_escape_txt(s:str)->str:
