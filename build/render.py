@@ -19,7 +19,7 @@ BUSINESS    = "Nashville's Hearing & Communication Center"
 BUSINESS_SHORT = "Nashville Hearing & Communication Center"
 OWNER       = "Dr. Gina Angley, AuD, CCC-A"
 YEAR        = "2026"
-CANONICAL_BASE = "https://kinggavint.github.io/nhcc-proof"
+CANONICAL_BASE = "https://nashvillehcc.com"
 
 def asset(depth:int, path:str)->str:
     """Relative asset path. depth = number of parent directories above root."""
