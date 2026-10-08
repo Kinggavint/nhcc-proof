@@ -161,13 +161,19 @@ li{font-size:1.1rem;line-height:1.6}
   .menu-btn{display:none}
   .main-navigation{display:block}
 }
-.main-navigation ul{list-style:none;margin:0;padding:0;display:flex;gap:.25rem}
+.main-navigation ul{list-style:none;margin:0;padding:0;display:flex;gap:.15rem;flex-wrap:nowrap;align-items:center}
 .main-navigation a{
   color:#fff;text-decoration:none;
-  padding:.75rem 1rem;
+  padding:.7rem .7rem;
   font-family:var(--heading-font);
-  font-size:.95rem;font-weight:500;letter-spacing:.02em;
+  font-size:.9rem;font-weight:500;letter-spacing:.02em;
   transition:color .3s ease;
+  white-space:nowrap;
+  display:block;
+}
+@media (min-width:1200px){
+  .main-navigation a{padding:.75rem 1rem;font-size:.95rem}
+  .main-navigation ul{gap:.25rem}
 }
 .main-navigation a:hover{color:#e9e8e4}
 .main-navigation a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px}
@@ -220,6 +226,7 @@ li{font-size:1.1rem;line-height:1.6}
 .hero .wave{
   position:absolute;bottom:-2px;left:0;right:0;
   width:100%;height:auto;z-index:2;
+  pointer-events:none;
 }
 @media (min-width:768px){
   .hero .hero_content{padding:11rem 0 8rem}
@@ -387,6 +394,22 @@ li{font-size:1.1rem;line-height:1.6}
 .service_half_wrap .service_half_inner{padding:1.5rem;background:var(--light);border:1px solid #eee;height:100%}
 .service_half_wrap img{margin:0 0 1rem 0}
 
+/* manufacturer cards (services page) */
+.manufacturer_grid{row-gap:1.5rem}
+.manufacturer_grid .service_box{
+  background:#fff;border:1px solid #eee;height:100%;
+  padding:1.75rem 1.5rem;text-align:center;
+  transition:box-shadow .25s ease,border-color .25s ease;
+}
+.manufacturer_grid .service_box:hover{border-color:var(--primary);box-shadow:var(--shadow)}
+.manufacturer_grid .service_box .mfr_group{
+  display:block;font-family:var(--heading-font);font-weight:700;
+  font-size:1.15rem;color:#1a1a1a;margin-bottom:.4rem;
+}
+.manufacturer_grid .service_box p{margin:0;color:#555;font-size:1rem;line-height:1.5}
+.manufacturer_grid .service_box p a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}
+.manufacturer_grid .service_box p a:hover{color:var(--primary-dark)}
+
 /* patient payment boxes */
 .payment_wrap{padding:3rem 1rem;background:var(--light)}
 .payment_wrap .payment_wrap_top{text-align:center;margin:0 0 2rem 0}
@@ -487,3 +510,11 @@ li{font-size:1.1rem;line-height:1.6}
   [data-aos]{opacity:1 !important;transform:none !important}
   .btn, .btn_alt, .menu-btn, a, .site-header{transition:none !important}
 }
+
+/* Contact page direct-contact cards */
+.contact_direct{display:grid;grid-template-columns:1fr;gap:20px;margin-top:1rem}
+.contact_direct_card{background:#f7f7f4;border-radius:14px;padding:24px 20px;border:1px solid rgba(0,0,0,.06)}
+.contact_direct_card h3{margin:0 0 12px;font-size:1.05rem}
+.contact_direct_card .btn,.contact_direct_card .btn_alt{margin:0 0 10px}
+.contact_direct_card p.small{margin:8px 0 0;font-size:.9rem;color:#555}
+@media (min-width:768px){.contact_direct{grid-template-columns:repeat(3,1fr)}}

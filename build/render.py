@@ -20,6 +20,12 @@ BUSINESS_SHORT = "Nashville Hearing & Communication Center"
 OWNER       = "Dr. Gina Angley, AuD, CCC-A"
 YEAR        = "2026"
 CANONICAL_BASE = "https://nashvillehcc.com"
+# NOTE 2026-08-23: was previously the github.io proof-mirror URL. That value
+# baked the wrong self-referencing domain into every generated canonical,
+# og:url, and JSON-LD field across all 18 pages (Defect 1). Fixed at the
+# source here so a future rebuild does not reintroduce the same defect.
+# If this script is ever used to build the github.io proof mirror again,
+# override this constant for that build only - do not revert it here.
 
 def asset(depth:int, path:str)->str:
     """Relative asset path. depth = number of parent directories above root."""
@@ -101,6 +107,7 @@ def render_head(depth:int, title:str, description:str, canonical_path:str, extra
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
   <title>{html.escape(title)}</title>
   <meta name="description" content="{html.escape(description)}">
   <link rel="canonical" href="{canonical}">
