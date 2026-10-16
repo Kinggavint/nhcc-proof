@@ -3,8 +3,8 @@
 The rebuild is **fully functional static HTML** and uses only NHCC branding — no third-party credits anywhere. A handful of integrations need a credential, vendor choice, or account ID from you before we flip them fully live.
 
 ## 1. Phone number — which line is primary?
-- REAL_CONTENT.md lists `615.678.8638` as the primary CTA phone (this is what the rebuild uses everywhere).
-- Your current Onspire site lists `615-237-7701` as call/text.
+- REAL_CONTENT.md lists `615.678.8638` as the primary CTA phone (main office line; per Gina 2026-07-07 the site uses the call-tracking line (615) 622-0153 for tel:/schema; source of truth data/nap.json).
+- Your current Onspire site lists `615-237-xxxx (retired old WordPress call/text line; never use; see data/nap.json)` as call/text.
 - Tell us which number is the **real, monitored** line (and whether text-messaging is on that same line or a separate Podium/Birdeye-style number). We'll flip the site instantly.
 
 ## 2. Text-messaging widget

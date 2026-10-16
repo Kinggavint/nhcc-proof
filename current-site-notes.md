@@ -14,10 +14,10 @@ Sources: [Helping Me Hear listing](https://www.helpingmehear.com/find-an-expert/
 
 ## Phone numbers — conflict
 - Task / REAL_CONTENT.md ACF `cta_button_one`: **615.678.8638** ← Erik's hard rule: use this.
-- Current Onspire Contact page: 615-237-7701
+- Current Onspire Contact page: 615-237-xxxx (retired old WordPress call/text line; never use; see data/nap.json)
 - nashvillehcc.com/appointment page still lists 615-678-8638 in description metadata.
 
-**Action:** Rebuild uses 615.678.8638 everywhere (primary practice line per original WordPress ACF).
+**Action (updated 2026-10-16):** Site tel:/schema use the call-tracking line (615) 622-0153 that Gina chose in writing 2026-07-07 (confirmed 2026-07-13). 615-678-8638 is her main office line (signature + Google listing). Source of truth: data/nap.json.
 Note in NOTES_FOR_CLIENT.md that Gina should confirm which line is active and whether a forwarding/text line needs separate treatment.
 
 ## Widgets visible on current Onspire site
