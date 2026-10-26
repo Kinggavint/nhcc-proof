@@ -4,7 +4,7 @@
 | Item | Current site | Rebuild (this project) |
 |---|---|---|
 | Address | 8008 TN-100, Nashville, TN 37221 (Bellevue) | 8008 TN-100, Nashville, TN 37221 ([Helping Me Hear listing](https://www.helpingmehear.com/find-an-expert/nashvilles-hearing-communication-center/), [nashvillehcc.com/location-contact](https://www.nashvillehcc.com/location-contact/)) |
-| Phone | 615-237-7701 (Onspire contact page) | **615.678.8638** per Erik's hard rule and REAL_CONTENT ACF field `cta_button_one` (the line also still printed in nashvillehcc.com/appointment metadata) |
+| Phone | 615-237-xxxx (retired old WordPress call/text line; never use; see data/nap.json) (Onspire contact page) | **615.678.8638** per Erik's hard rule and REAL_CONTENT ACF field `cta_button_one` (the line also still printed in nashvillehcc.com/appointment metadata) |
 | Hours | Mon–Thu 8a–4p, Fri 8a–11:30a, closed weekends | Same (verified via [Helping Me Hear](https://www.helpingmehear.com/find-an-expert/nashvilles-hearing-communication-center/) and [Yelp](https://www.yelp.com/biz/nashvilles-hearing-and-communication-center-nashville-2)) |
 | Email | Not publicly listed | Placeholder `info@nashvillehcc.com` — flagged for Gina to confirm |
 

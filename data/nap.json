@@ -1,0 +1,10 @@
+{
+  "_comment": "Single source of truth for Nashville's Hearing & Communication Center phones. Site tel:/schema use the call-tracking line Gina chose in writing 2026-07-07 (confirmed by us 2026-07-13). 615-678-8638 is her main office line (signature + Google listing) and is allowed only where already intentionally used. 615-237-7701 is the retired old WordPress call/text line: never use.",
+  "name": "Nashville's Hearing & Communication Center",
+  "phones": [
+    {"label": "Site call-tracking line (primary for site/tel/schema)", "display": "(615) 622-0153", "e164": "+16156220153"},
+    {"label": "Main office line (allowed only where intentionally used)", "display": "(615) 678-8638", "e164": "+16156788638"}
+  ],
+  "other_allowed_tel": [],
+  "banned_numbers": ["6152377701"]
+}

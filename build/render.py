@@ -10,8 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT  = ROOT
 
-PHONE       = "615.678.8638"
-PHONE_TEL   = "tel:+16156788638"
+PHONE       = "615.622.0153"
+PHONE_TEL   = "tel:+16156220153"
 ADDRESS_L1  = "8008 TN-100"
 ADDRESS_L2  = "Nashville, TN 37221"
 EMAIL       = "info@nashvillehcc.com"
@@ -56,7 +56,7 @@ BIZ_SCHEMA = {
   "name": BUSINESS,
   "alternateName":"NHCC",
   "url": CANONICAL_BASE + "/",
-  "telephone": "+1-615-678-8638",
+  "telephone": "+1-615-622-0153",
   "email": EMAIL,
   "image": CANONICAL_BASE + "/assets/images-webp/headshot.webp",
   "priceRange":"$$",
