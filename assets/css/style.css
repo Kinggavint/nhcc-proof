@@ -171,6 +171,11 @@ li{font-size:1.1rem;line-height:1.6}
   white-space:nowrap;
   display:block;
 }
+/* Gina 7/20 item 8: keep every nav label on one line and the full menu inside the viewport at 992-1199px */
+@media (min-width:992px) and (max-width:1199px){
+  .main-navigation a{padding:.7rem .5rem;font-size:.85rem;letter-spacing:.01em}
+  .main-navigation ul{gap:0}
+}
 @media (min-width:1200px){
   .main-navigation a{padding:.75rem 1rem;font-size:.95rem}
   .main-navigation ul{gap:.25rem}
