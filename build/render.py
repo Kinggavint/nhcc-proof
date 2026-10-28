@@ -14,7 +14,7 @@ PHONE       = "615.622.0153"
 PHONE_TEL   = "tel:+16156220153"
 ADDRESS_L1  = "8008 TN-100"
 ADDRESS_L2  = "Nashville, TN 37221"
-EMAIL       = "pcc@nashvillehcc.com"  # Gina 7/20 item 7
+EMAIL       = "info@nashvillehcc.com"
 BUSINESS    = "Nashville's Hearing & Communication Center"
 BUSINESS_SHORT = "Nashville Hearing & Communication Center"
 OWNER       = "Dr. Gina Angley, AuD, CCC-A"
@@ -44,7 +44,6 @@ NAV = [
     ("patient-info/",        "Patient Info"),
     ("hearing-testing/",     "Hearing Testing"),
     ("appointment/",         "Schedule"),
-    ("reviews/",             "Reviews"),
     ("blog/",                "Blog"),
     ("newsletters/",         "Newsletters"),
     ("contact/",             "Contact"),

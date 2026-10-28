@@ -329,10 +329,10 @@ def build_about():
     faq = [
       ("What does personalized care at NHCC look like?",
        "At NHCC, we'll do in-depth questioning to understand your particular concerns and struggles and get an accurate picture of how your hearing loss affects your daily life. Expect to do most of the talking during your appointment—we're here to listen. After your full diagnostic testing and interview, you'll get a fully customized plan based on gold standard practices within audiology."),
-      ("Why are hearing aids so expensive? Some cost $3000 to $8000 - sometimes even higher.",
-       "Most hearing clinics typically pay $1100-$2500 per hearing aid. Then the costs of the provider's time and expertise, business expenses etc. are bundled into your total price without any transparency of what you're actually paying for."),
+      ("Why are hearing aids so expensive? Some cost $2,000–$6,000 — sometimes even higher.",
+       "Most hearing clinics typically pay $400–$1,300 per hearing aid. Then the costs of the provider's time and expertise, business expenses etc. are bundled into your total price without any transparency of what you're actually paying for."),
       ("What is the difference between a bundled service model and an unbundled service model?",
-       "In a bundled service model, the provider or clinic is presenting you with one set price, and you don't see how much of the total cost is the hearing aid and how much of the total cost is related to services. This model is not transparent and has resulted in the misconception that hearing aids are overpriced. At NHCC, you get the advantage of an unbundled service model. You'll always know the cost of the device and the cost of services. We itemize each service so you know exactly what you're paying for."),
+       "In a bundled service model, the provider or clinic is presenting you with one set price, and you don't see how much of the total cost is the hearing aid and how much of the total cost is related to services. This model is not transparent and has resulted in the misconception that hearing aids are overpriced. At NHCC, you get the advantage of an unbundled service model. You'll always know the cost of the device as it shows on your invoice—what we actually pay for the device. We itemize each service so you know exactly what you're paying for."),
       ("Are real ear measurements really necessary?",
        "Real ear measurement (sometimes known as hearing aid verification) is an evidence-based practice that results in much higher patient satisfaction with their hearing aids. Uncalibrated hearing aids may be better than none at all, but in order to get the full benefit of your device you will need to have them calibrated to your specific ear and hearing loss. For example, you can pick up a pair of readers from a pharmacy or grocery store and they will improve your vision. Those glasses, however, are not tailored to your eyes the way prescription glasses from an optometrist are."),
       ("How does hearing aid verification work?",
@@ -342,7 +342,7 @@ def build_about():
       ("If it's not a full-service prescriptive hearing aid that I need, what else could I get?",
        "As of August 17, 2022, the FDA released regulations for a new classification of hearing aid: over-the-counter hearing aids (or OTC). These devices are meant for those with a perceived mild to moderate degree of hearing loss. This may be a better entry point for a patient, and {biz} offers OTC devices to patients. It could also be an accessory or assistive listening device (ALD) for a particular situation. If the only situation where the hearing loss is noticed is, say, at a theater, a personal loop system may be all you need.".format(biz=BUSINESS)),
       ("Are top-of-the-line hearing aids actually worth the money?",
-       "Some evidence suggests that more expensive devices offer better understanding and performance in noisy places. More expensive does not mean that you will understand speech better in quiet, that the hearing aid will last longer, or that it's made of better quality. At {biz}, we help you understand the differences in what is available to you as you make your decision. Once we have an understanding of what your full hearing profile looks like, your lifestyle, and your budget, we can help you make an informed decision on what device will work best for you.".format(biz=BUSINESS)),
+       "There is currently no independent research (research not from a hearing aid manufacturer) that shows more expensive means better understanding and performance. More expensive does not mean that you will understand speech better, that the hearing aid will last longer, or that it's better quality. At {biz}, we help you understand the differences in what is available to you as you make your decision. Once we have an understanding of what your full hearing profile looks like, your lifestyle, and your budget, we can help you make an informed decision on what device will work best for you.".format(biz=BUSINESS)),
     ]
     faq_html = "".join(f"""
       <details class="faq_item" data-aos="fade">
@@ -410,6 +410,15 @@ def build_about():
     </div>
   </section>
 
+  <section class="reviews_wrap" aria-label="Reviews from our patients">
+    <div class="container">
+      <h2>Reviews from our patients</h2>
+      <div class="reviews_placeholder">
+        <p><strong>Patient reviews will be embedded here.</strong></p>
+        <p>This section is reserved for the Review Manager / medpb.com widget that appeared on the original NHCC site (<code>results.medpb.com/nsv/</code>). We'll wire it up once the embed credentials are provided.</p>
+      </div>
+    </div>
+  </section>
 
   <section class="cta_band">
     <div class="container">
@@ -460,10 +469,10 @@ def build_services():
 
     brands = [
       ("Sonova","Phonak, Unitron, Advanced Bionics","https://www.sonova.com/en"),
-      ("Starkey","Starkey","https://www.starkey.com/"),
+      ("Starkey","Starkey, Audibel, NuEar, MicroTech","https://www.starkey.com/"),
       ("WS Audiology","Signia, Widex","https://www.wsa.com/"),
-      ("GN Group","ReSound","https://www.gn.com/"),
-      ("Demant Group","Oticon, Oticon Medical","https://www.demant.com/"),
+      ("GN Group","ReSound, Beltone, Jabra","https://www.gn.com/"),
+      ("Demant Group","Oticon, Oticon Medical, Bernafon, Sonic Innovations","https://www.demant.com/"),
     ]
     brands_html = "".join(f"""
       <div class="col-md-6 col-lg-4">
@@ -734,6 +743,13 @@ def build_patient_info():
         <p>Transparent, unbundled pricing — every invoice is itemized.</p>
       </div>
       <div class="row justify-content-center">{pay_html}</div>
+      <div class="payment_wrap_bottom">
+        <div class="financing_card" style="max-width:720px;margin:2rem auto 0">
+          <h3>Cherry Financing</h3>
+          <p>Cherry offers simple, low-interest financing plans — apply online and see if you qualify in seconds. Ask us for the link at your appointment, or call {PHONE} and we'll email it to you.</p>
+          <a class="btn" href="{PHONE_TEL}">Call {PHONE}</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -872,11 +888,61 @@ def build_appointment():
   <section class="full_content_wrap">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-10">
-          <div class="schedule-embed">
-            <iframe id="ceschedule" src="https://www.hearinghealthportal.com/scheduling/schedule.aspx?key=104511&embed=true" width="100%" height="1200px" frameborder="0" style="border: 0;"></iframe>
-            <script src="https://cdn.hearinghealthportal.com/Scripts/ScheduleEmbed-min-v1.js" type="text/javascript"></script>
+        <div class="col-md-5">
+          <div class="contact_sidebar">
+            <h3>Call or text</h3>
+            <p><a href="{PHONE_TEL}">{PHONE}</a></p>
+            <h3>Visit us</h3>
+            <p>{ADDRESS_L1}<br>{ADDRESS_L2}</p>
+            <h3>Office hours</h3>
+            <p>Monday – Thursday<br>8:00&nbsp;am – 4:00&nbsp;pm</p>
+            <p>Friday<br>8:00&nbsp;am – 11:30&nbsp;am</p>
+            <p>Saturday &amp; Sunday — closed</p>
           </div>
+        </div>
+        <div class="col-md-7">
+          <h2 style="text-align:left">Request an appointment</h2>
+          <p style="text-align:left">Fill out the form and we'll confirm your visit by phone or email within one business day.</p>
+          <form class="nhcc-form" action="{PG(d,'appointment/thanks.html')}" method="post" novalidate>
+            <div class="form-grid">
+              <div>
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" required autocomplete="name">
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" required autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-grid">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required autocomplete="email">
+              </div>
+              <div>
+                <label for="pref_date">Preferred date</label>
+                <input id="pref_date" name="pref_date" type="date">
+              </div>
+            </div>
+            <div>
+              <label for="reason">Reason for visit</label>
+              <select id="reason" name="reason">
+                <option value="">— Choose one —</option>
+                <option>Hearing test / first visit</option>
+                <option>Hearing aid fitting consultation</option>
+                <option>Hearing aid follow-up or calibration</option>
+                <option>Real-ear measurement</option>
+                <option>Hearing aid repair or maintenance</option>
+                <option>Assistive listening device consult</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div>
+              <label for="message">Anything else we should know?</label>
+              <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+            <div><button class="btn" type="submit">Send request</button></div>
+          </form>
         </div>
       </div>
     </div>
@@ -939,25 +1005,17 @@ def build_contact():
           </div>
         </div>
         <div class="col-md-7">
-          <h2 style="text-align:left">Get in touch</h2>
-          <p style="text-align:left">The fastest way to reach our team is by phone or email. A real person on our staff will get back to you the same business day.</p>
-          <div class="contact_direct">
-            <div class="contact_direct_card">
-              <h3>Call or text</h3>
-              <p><a class="btn" href="{PHONE_TEL}">Call {PHONE}</a></p>
-              <p class="small">Speak with Suzanne or Jessica about scheduling, insurance, or questions before your visit.</p>
+          <h2 style="text-align:left">Send us a message</h2>
+          <p style="text-align:left">Use the form below to contact our team.</p>
+          <form class="nhcc-form" action="{PG(d,'contact/thanks.html')}" method="post" novalidate>
+            <div class="form-grid">
+              <div><label for="name">Your name</label><input id="name" name="name" type="text" required></div>
+              <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
             </div>
-            <div class="contact_direct_card">
-              <h3>Email</h3>
-              <p><a class="btn btn_alt" href="mailto:{EMAIL}?subject=Website%20inquiry">Email {EMAIL}</a></p>
-              <p class="small">Opens your email app. Include your name, phone number, and how we can help.</p>
-            </div>
-            <div class="contact_direct_card">
-              <h3>Ready to schedule?</h3>
-              <p><a class="btn" href="{PG(d,'appointment/')}">Request an appointment</a></p>
-              <p class="small">Prefer to book online? Our appointment page walks you through what to expect.</p>
-            </div>
-          </div>
+            <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel"></div>
+            <div><label for="message">Message</label><textarea id="message" name="message" rows="6" required></textarea></div>
+            <div><button class="btn" type="submit">Send</button></div>
+          </form>
         </div>
       </div>
     </div>
@@ -1005,13 +1063,13 @@ def build_blog():
       {
         "slug":"how-to-preserve-and-protect-your-hearing/",
         "title":"How to preserve and protect your hearing as you grow older",
-        "date":"2026-05-15",
+        "date":"2024-11-20",
         "excerpt":"Loud noise exposure has lasting effects on your hearing. Here's how to protect your ears and enjoy better hearing at any age.",
       },
       {
         "slug":"how-to-properly-clean-your-hearing-aid/",
         "title":"How to properly clean your hearing aid",
-        "date":"2026-06-10",
+        "date":"2024-12-05",
         "excerpt":"Regular cleaning keeps your hearing aids working at their best. Easy, actionable tips from Dr. Gina Angley.",
       },
     ]
@@ -1054,7 +1112,7 @@ def build_blog():
       "headline":"How to preserve and protect your hearing as you grow older",
       "author":{"@type":"Person","name":"Gina Angley, AuD"},
       "publisher":{"@type":"Organization","name":BUSINESS,"logo":{"@type":"ImageObject","url":CANONICAL_BASE+"/assets/icons/NHCC-Full-2Color-new.svg"}},
-      "datePublished":"2026-05-15","dateModified":"2026-05-15",
+      "datePublished":"2024-11-20","dateModified":"2024-11-20",
       "mainEntityOfPage":CANONICAL_BASE+"/blog/how-to-preserve-and-protect-your-hearing/",
       "image":CANONICAL_BASE+"/assets/images-webp/man-struggling-to-hear.webp",
     }
@@ -1062,7 +1120,7 @@ def build_blog():
 <main id="primary" class="site-main">
   <section class="article_wrap">
     <article>
-      <p class="meta"><a href="{asset(2,'blog/')}">&larr; All articles</a> · May 15, 2026</p>
+      <p class="meta"><a href="{asset(2,'blog/')}">&larr; All articles</a> · November 20, 2024</p>
       <h1>How to preserve and protect your hearing as you grow older</h1>
       <p>Have you ever reminisced about attending rock concerts in the '70s or '80s? Many of us fondly remember those loud, electrifying moments, but if you've been to a boy band concert in the '90s or 2000s, you know the volume—and the screams—can reach another level. Whether it's rock, pop, or power tools, loud noise exposure has lasting effects on our hearing health. Here's how you can protect your ears and enjoy better hearing as you age.</p>
 
@@ -1123,7 +1181,7 @@ def build_blog():
       "headline":"How to properly clean your hearing aid",
       "author":{"@type":"Person","name":"Gina Angley, AuD"},
       "publisher":{"@type":"Organization","name":BUSINESS},
-      "datePublished":"2026-06-10","dateModified":"2026-06-10",
+      "datePublished":"2024-12-05","dateModified":"2024-12-05",
       "mainEntityOfPage":CANONICAL_BASE+"/blog/how-to-properly-clean-your-hearing-aid/",
       "image":CANONICAL_BASE+"/assets/images-webp/man-cleaning-hearing-aids.webp"
     }
@@ -1131,7 +1189,7 @@ def build_blog():
 <main id="primary" class="site-main">
   <section class="article_wrap">
     <article>
-      <p class="meta"><a href="{asset(2,'blog/')}">&larr; All articles</a> · June 10, 2026</p>
+      <p class="meta"><a href="{asset(2,'blog/')}">&larr; All articles</a> · December 5, 2024</p>
       <h1>How to properly clean your hearing aid</h1>
       <p>Hearing aids are a valuable investment in your hearing health. To ensure they continue to perform at their best, regular maintenance is key. Let's explore some easy tips for properly cleaning your hearing aids.</p>
 
@@ -1208,11 +1266,11 @@ def build_newsletters():
     d = 1
     hero_bg = IMG(d,"hero_0004_AdobeStock_305465055-1.webp")
     items = [
-      ("january2025/","Launching our monthly newsletter","January 2026",
+      ("january2025/","Launching our monthly newsletter","January 2025",
        "Each month we'll explore how hearing health connects to heart health, nutrition, stress, and your overall wellness — starting this issue."),
-      ("february-2025/","Heart Health Month — love your ears, love your heart","February 2026",
+      ("february-2025/","Heart Health Month — love your ears, love your heart","February 2025",
        "A closer look at the science connecting cardiovascular health and your hearing, plus heartfelt tips for healthy ears."),
-      ("february2025/","How heart health impacts your hearing","February 2026",
+      ("february2025/","How heart health impacts your hearing","February 2025",
        "Research-based tips on circulation, hydration, diet, and hearing — with a direct link to schedule a test."),
     ]
     cards = "".join(f"""
@@ -1246,7 +1304,7 @@ def build_newsletters():
 <main id="primary" class="site-main">
   <section class="article_wrap">
     <article>
-      <p class="meta"><a href="{asset(2,'newsletters/')}">&larr; All newsletters</a> · January 2026</p>
+      <p class="meta"><a href="{asset(2,'newsletters/')}">&larr; All newsletters</a> · January 2025</p>
       <h1>Launching our monthly newsletter</h1>
       <p style="text-align:center"><em>Stay Informed, Stay Healthy!</em></p>
       <p>We're thrilled to announce something new and exciting just for you — starting next month, you'll receive a monthly email newsletter designed to keep you informed about how hearing health connects to your overall well-being.</p>
@@ -1267,7 +1325,7 @@ def build_newsletters():
 </main>
 """
     write_page("newsletters/january2025/", 2,
-        title="January 2026 Newsletter | NHCC",
+        title="January 2025 Newsletter | NHCC",
         description="Launching our monthly newsletter on hearing health and whole-body wellness from Dr. Gina Angley.",
         body=jan_body)
 
@@ -1276,7 +1334,7 @@ def build_newsletters():
 <main id="primary" class="site-main">
   <section class="article_wrap">
     <article>
-      <p class="meta"><a href="{asset(2,'newsletters/')}">&larr; All newsletters</a> · February 2026</p>
+      <p class="meta"><a href="{asset(2,'newsletters/')}">&larr; All newsletters</a> · February 2025</p>
       <h1>How heart health impacts your hearing: what you need to know</h1>
       <p>When we think about heart health, we often picture strong arteries, steady pulses, and blood pressure readings. But what if we told you that your heart's well-being could influence how well you hear the world around you? It's true — your heart and ears are more connected than you might realize.</p>
       <h3>The connection between cardiovascular health and hearing loss</h3>
@@ -1301,7 +1359,7 @@ def build_newsletters():
 </main>
 """
     write_page("newsletters/february2025/", 2,
-        title="February 2026, How heart health impacts your hearing | NHCC",
+        title="February 2025 — How heart health impacts your hearing | NHCC",
         description="Your heart and ears are more connected than you think. Research-based tips on circulation, hydration, and hearing from Dr. Gina Angley.",
         body=feb1_body)
 
@@ -1310,7 +1368,7 @@ def build_newsletters():
 <main id="primary" class="site-main">
   <section class="article_wrap">
     <article>
-      <p class="meta"><a href="{asset(2,'newsletters/')}">&larr; All newsletters</a> · February 2026</p>
+      <p class="meta"><a href="{asset(2,'newsletters/')}">&larr; All newsletters</a> · February 2025</p>
       <h1 style="text-align:center">February is Heart Health Month — love your ears, love your heart</h1>
       <p>As February rolls in, we're reminded of the importance of heart health, not just for your overall well-being but for your hearing, too. At {BUSINESS}, we're celebrating Heart Health Month by exploring the intriguing relationship between cardiovascular health and your auditory system.</p>
       <h3>The science behind the connection</h3>
@@ -1335,7 +1393,7 @@ def build_newsletters():
 </main>
 """
     write_page("newsletters/february-2025/", 2,
-        title="February 2026, Heart Health Month | NHCC",
+        title="February 2025 — Heart Health Month | NHCC",
         description="Love your ears, love your heart. Heart-healthy habits that also protect your hearing, from Dr. Gina Angley.",
         body=feb2_body)
 
